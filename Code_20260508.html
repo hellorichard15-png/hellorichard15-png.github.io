@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>澳門社區大獎賞2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+    }
+
+    /* 頂部藍色列 */
+    .top-bar {
+      width: 100%;
+      height: 56px;
+      background-color: #2176d2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99;
+    }
+
+    /* 標題放藍色欄中間 */
+    .bar-title {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .plus-btn {
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    /* 主內容區 */
+    .container {
+      margin-top: 80px;
+      padding: 20px;
+    }
+
+    /* 彈窗背景 */
+    .mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    /* 彈窗本體 */
+    .popup {
+      background: #fff;
+      width: 90%;
+      max-width: 400px;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .popup h3 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    select, .money-input {
+      width: 100%;
+      height: 44px;
+      margin: 8px 0;
+      padding: 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .confirm-btn {
+      flex: 1;
+      height: 46px;
+      background: #2176d2;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .cancel-btn {
+      flex: 1;
+      height: 46px;
+      background: #eee;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    /* 消費券卡片 */
+    .card {
+      background: #f5f7fa;
+      padding: 18px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border-left: 5px solid #2176d2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .card-content p {
+      font-size: 16px;
+      margin: 4px 0;
+    }
+
+    .delete-btn {
+      color: #ff4d4f;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 頂部藍色欄：中間標題、右邊加號 -->
+<div class="top-bar">
+  <div></div>
+  <div class="bar-title">澳門社區大獎賞2026</div>
+  <div class="plus-btn" onclick="openPopup()">+</div>
+</div>
+
+<!-- 主頁內容 -->
+<div class="container">
+  <div id="cardList"></div>
+</div>
+
+<!-- 彈窗 -->
+<div class="mask" id="mask">
+  <div class="popup">
+    <h3>選擇平台</h3>
+    <select id="platform">
+      <option>支付寶（澳門）</option>
+      <option>澳門中銀手機銀行</option>
+      <option>廣發移動支付錢包</option>
+      <option>工銀e支付</option>
+      <option>Luso Pay 國際付</option>
+      <option>MPay</option>
+      <option>豐付寶</option>
+      <option>UePay 澳門錢包</option>
+    </select>
+
+    <p style="margin-top:12px;">輸入金額</p>
+    <input type="number" class="money-input" id="m1" placeholder="金額 1">
+    <input type="number" class="money-input" id="m2" placeholder="金額 2">
+    <input type="number" class="money-input" id="m3" placeholder="金額 3">
+
+    <div class="btn-group">
+      <button class="confirm-btn" onclick="addCard()">確定</button>
+      <button class="cancel-btn" onclick="closePopup()">取消</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = 'macau_coupons';
+
+function openPopup(){
+  document.getElementById('mask').style.display = 'flex';
+}
+
+function closePopup(){
+  document.getElementById('mask').style.display = 'none';
+  document.getElementById('m1').value = '';
+  document.getElementById('m2').value = '';
+  document.getElementById('m3').value = '';
+}
+
+document.getElementById('mask').onclick = function(e){
+  if(e.target === this) closePopup();
+}
+
+function getCoupons() {
+  let data = localStorage.getItem(STORAGE_KEY);
+  return data ? JSON.parse(data) : [];
+}
+
+function saveCoupons(arr) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+}
+
+function renderCards() {
+  let list = document.getElementById('cardList');
+  let arr = getCoupons();
+  list.innerHTML = '';
+  arr.forEach((item, idx)=>{
+    list.innerHTML += `
+    <div class="card">
+      <div class="card-content">
+        <p>平台：${item.platform}</p>
+        <p>金額一：${item.m1} 元</p>
+        <p>金額二：${item.m2} 元</p>
+        <p>金額三：${item.m3} 元</p>
+      </div>
+      <span class="delete-btn" onclick="del(${idx})">×</span>
+    </div>
+    `;
+  });
+}
+
+function addCard(){
+  let p = document.getElementById('platform').value;
+  let m1 = document.getElementById('m1').value;
+  let m2 = document.getElementById('m2').value;
+  let m3 = document.getElementById('m3').value;
+
+  let arr = getCoupons();
+  arr.push({platform:p,m1,m2,m3});
+  saveCoupons(arr);
+  renderCards();
+  closePopup();
+}
+
+function del(idx){
+  let arr = getCoupons();
+  arr.splice(idx,1);
+  saveCoupons(arr);
+  renderCards();
+}
+
+window.onload = function(){
+  renderCards();
+}
+</script>
+
+</body>
+</html>
