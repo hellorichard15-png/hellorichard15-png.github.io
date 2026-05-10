@@ -1,172 +1,258 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>母亲节幸运抽红包</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "微软雅黑", sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>澳門社區大獎賞2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ffd6e0, #ffb6c1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+    body {
+      background: #ffffff;
+    }
 
-        .box {
-            background: #fff;
-            border-radius: 25px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.3);
-            max-width: 400px;
-            width: 100%;
-        }
+    /* 頂部藍色列 */
+    .top-bar {
+      width: 100%;
+      height: 56px;
+      background-color: #2176d2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99;
+    }
 
-        h1 {
-            color: #e84a8a;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
+    /* 標題放藍色欄中間 */
+    .bar-title {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+    }
 
-        .flower {
-            font-size: 50px;
-            margin: 20px 0;
-        }
+    .plus-btn {
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+    }
 
-        #result {
-            font-size: 20px;
-            color: #c71585;
-            min-height: 60px;
-            margin: 15px 0;
-            padding: 15px;
-            border-radius: 15px;
-            background: #ffe6f2;
-            line-height: 1.6;
-        }
+    /* 主內容區 */
+    .container {
+      margin-top: 80px;
+      padding: 20px;
+    }
 
-        .count-tip {
-            color: #e84a8a;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
+    /* 彈窗背景 */
+    .mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
 
-        .btn {
-            background: linear-gradient(90deg, #ff69b4, #ff87b5);
-            color: #fff;
-            border: none;
-            padding: 16px 40px;
-            font-size: 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
-            transition: all 0.3s ease;
-        }
+    /* 彈窗本體 */
+    .popup {
+      background: #fff;
+      width: 90%;
+      max-width: 400px;
+      padding: 25px;
+      border-radius: 12px;
+    }
 
-        .btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
+    .popup h3 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
 
-        .btn:hover:not(:disabled) {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
-        }
-    </style>
+    select, .money-input {
+      width: 100%;
+      height: 44px;
+      margin: 8px 0;
+      padding: 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .confirm-btn {
+      flex: 1;
+      height: 46px;
+      background: #2176d2;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .cancel-btn {
+      flex: 1;
+      height: 46px;
+      background: #eee;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    /* 消費券卡片 */
+    .card {
+      background: #f5f7fa;
+      padding: 18px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border-left: 5px solid #2176d2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .card-content p {
+      font-size: 16px;
+      margin: 4px 0;
+    }
+
+    .delete-btn {
+      color: #ff4d4f;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+  </style>
 </head>
 <body>
-    <div class="box">
-        <h1>💐 母亲节幸运抽奖</h1>
-        <div class="flower">🌷💖🌷</div>
-        <div class="count-tip" id="countTip">今日剩余次数：15 次</div>
-        <div id="result">点击下方按钮开启好运～</div>
-        <button class="btn" id="drawBtn" onclick="drawLottery()">立即抽好运</button>
+
+<!-- 頂部藍色欄：中間標題、右邊加號 -->
+<div class="top-bar">
+  <div></div>
+  <div class="bar-title">澳門社區大獎賞2026</div>
+  <div class="plus-btn" onclick="openPopup()">+</div>
+</div>
+
+<!-- 主頁內容 -->
+<div class="container">
+  <div id="cardList"></div>
+</div>
+
+<!-- 彈窗 -->
+<div class="mask" id="mask">
+  <div class="popup">
+    <h3>選擇平台</h3>
+    <select id="platform">
+      <option>支付寶（澳門）</option>
+      <option>澳門中銀手機銀行</option>
+      <option>廣發移動支付錢包</option>
+      <option>工銀e支付</option>
+      <option>Luso Pay 國際付</option>
+      <option>MPay</option>
+      <option>豐付寶</option>
+      <option>UePay 澳門錢包</option>
+    </select>
+
+    <p style="margin-top:12px;">輸入金額</p>
+    <input type="number" class="money-input" id="m1" placeholder="金額 1">
+    <input type="number" class="money-input" id="m2" placeholder="金額 2">
+    <input type="number" class="money-input" id="m3" placeholder="金額 3">
+
+    <div class="btn-group">
+      <button class="confirm-btn" onclick="addCard()">確定</button>
+      <button class="cancel-btn" onclick="closePopup()">取消</button>
     </div>
+  </div>
+</div>
 
-    <script>
-        // 配置
-        const MAX_TIMES = 15; // 每天最多15次
-        const moneyList = [5.20, 6.66, 8.88, 9.99, 13.14, 20.00];
-        const blessList = [
-            "母亲节快乐，愿妈妈永远健康美丽～",
-            "岁岁年年，愿妈妈平安喜乐❤️",
-            "感恩母爱，一生温柔相伴🌷",
-            "愿时光慢一点，爱妈妈久一点",
-            "最美的祝福送给最爱的妈妈"
-        ];
+<script>
+const STORAGE_KEY = 'macau_coupons';
 
-        // 获取今天日期字符串 YYYY-MM-DD
-        function getTodayStr() {
-            const d = new Date();
-            return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-        }
+function openPopup(){
+  document.getElementById('mask').style.display = 'flex';
+}
 
-        // 初始化次数
-        function initCount() {
-            let today = getTodayStr();
-            let store = JSON.parse(localStorage.getItem('momDraw')) || {};
+function closePopup(){
+  document.getElementById('mask').style.display = 'none';
+  document.getElementById('m1').value = '';
+  document.getElementById('m2').value = '';
+  document.getElementById('m3').value = '';
+}
 
-            // 不是同一天，重置次数
-            if (store.date !== today) {
-                store = { date: today, times: 0 };
-                localStorage.setItem('momDraw', JSON.stringify(store));
-            }
-            return store.times;
-        }
+document.getElementById('mask').onclick = function(e){
+  if(e.target === this) closePopup();
+}
 
-        // 更新剩余次数显示
-        function updateTip() {
-            let times = initCount();
-            let left = MAX_TIMES - times;
-            document.getElementById('countTip').innerText = `今日剩余次数：${left} 次`;
-            // 次数用完禁用按钮
-            if (left <= 0) {
-                document.getElementById('drawBtn').disabled = true;
-                document.getElementById('result').innerText = "今日抽奖次数已用完，明天再来哦～";
-            }
-        }
+function getCoupons() {
+  let data = localStorage.getItem(STORAGE_KEY);
+  return data ? JSON.parse(data) : [];
+}
 
-        // 抽奖逻辑
-        function drawLottery() {
-            let times = initCount();
-            if (times >= MAX_TIMES) {
-                document.getElementById('result').innerText = "今日抽奖次数已用完，明天再来哦～";
-                return;
-            }
+function saveCoupons(arr) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+}
 
-            // 次数+1 保存缓存
-            times++;
-            let store = { date: getTodayStr(), times: times };
-            localStorage.setItem('momDraw', JSON.stringify(store));
-            updateTip();
+function renderCards() {
+  let list = document.getElementById('cardList');
+  let arr = getCoupons();
+  list.innerHTML = '';
+  arr.forEach((item, idx)=>{
+    list.innerHTML += `
+    <div class="card">
+      <div class="card-content">
+        <p>平台：${item.platform}</p>
+        <p>金額一：${item.m1} 元</p>
+        <p>金額二：${item.m2} 元</p>
+        <p>金額三：${item.m3} 元</p>
+      </div>
+      <span class="delete-btn" onclick="del(${idx})">×</span>
+    </div>
+    `;
+  });
+}
 
-            // 50%概率抽钱/祝福语
-            let isGetMoney = Math.random() < 0.5;
-            let resDom = document.getElementById("result");
+function addCard(){
+  let p = document.getElementById('platform').value;
+  let m1 = document.getElementById('m1').value;
+  let m2 = document.getElementById('m2').value;
+  let m3 = document.getElementById('m3').value;
 
-            if (isGetMoney) {
-                let randomMoney = moneyList[Math.floor(Math.random() * moneyList.length)];
-                resDom.innerHTML = `🎉 恭喜抽中红包<br>💰 ${randomMoney.toFixed(2)} 元`;
-            } else {
-                let randomBless = blessList[Math.floor(Math.random() * blessList.length)];
-                resDom.innerText = randomBless;
-            }
-        }
+  let arr = getCoupons();
+  arr.push({platform:p,m1,m2,m3});
+  saveCoupons(arr);
+  renderCards();
+  closePopup();
+}
 
-        // 页面加载初始化
-        window.onload = function() {
-            updateTip();
-        };
-    </script>
+function del(idx){
+  let arr = getCoupons();
+  arr.splice(idx,1);
+  saveCoupons(arr);
+  renderCards();
+}
+
+window.onload = function(){
+  renderCards();
+}
+</script>
+
 </body>
 </html>
