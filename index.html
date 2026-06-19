@@ -1,258 +1,82 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>澳門社區大獎賞2026</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: sans-serif;
-    }
-
-    body {
-      background: #ffffff;
-    }
-
-    /* 頂部藍色列 */
-    .top-bar {
-      width: 100%;
-      height: 56px;
-      background-color: #2176d2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 18px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 99;
-    }
-
-    /* 標題放藍色欄中間 */
-    .bar-title {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    .plus-btn {
-      color: #fff;
-      font-size: 30px;
-      cursor: pointer;
-    }
-
-    /* 主內容區 */
-    .container {
-      margin-top: 80px;
-      padding: 20px;
-    }
-
-    /* 彈窗背景 */
-    .mask {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-    }
-
-    /* 彈窗本體 */
-    .popup {
-      background: #fff;
-      width: 90%;
-      max-width: 400px;
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    .popup h3 {
-      text-align: center;
-      margin-bottom: 15px;
-      font-size: 20px;
-    }
-
-    select, .money-input {
-      width: 100%;
-      height: 44px;
-      margin: 8px 0;
-      padding: 0 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .confirm-btn {
-      flex: 1;
-      height: 46px;
-      background: #2176d2;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    .cancel-btn {
-      flex: 1;
-      height: 46px;
-      background: #eee;
-      color: #333;
-      border: none;
-      border-radius: 6px;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    /* 消費券卡片 */
-    .card {
-      background: #f5f7fa;
-      padding: 18px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      border-left: 5px solid #2176d2;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .card-content p {
-      font-size: 16px;
-      margin: 4px 0;
-    }
-
-    .delete-btn {
-      color: #ff4d4f;
-      cursor: pointer;
-      font-size: 20px;
-      line-height: 1;
-    }
-  </style>
-</head>
-<body>
-
-<!-- 頂部藍色欄：中間標題、右邊加號 -->
-<div class="top-bar">
-  <div></div>
-  <div class="bar-title">澳門社區大獎賞2026</div>
-  <div class="plus-btn" onclick="openPopup()">+</div>
-</div>
-
-<!-- 主頁內容 -->
-<div class="container">
-  <div id="cardList"></div>
-</div>
-
-<!-- 彈窗 -->
-<div class="mask" id="mask">
-  <div class="popup">
-    <h3>選擇平台</h3>
-    <select id="platform">
-      <option>支付寶（澳門）</option>
-      <option>澳門中銀手機銀行</option>
-      <option>廣發移動支付錢包</option>
-      <option>工銀e支付</option>
-      <option>Luso Pay 國際付</option>
-      <option>MPay</option>
-      <option>豐付寶</option>
-      <option>UePay 澳門錢包</option>
-    </select>
-
-    <p style="margin-top:12px;">輸入金額</p>
-    <input type="number" class="money-input" id="m1" placeholder="金額 1">
-    <input type="number" class="money-input" id="m2" placeholder="金額 2">
-    <input type="number" class="money-input" id="m3" placeholder="金額 3">
-
-    <div class="btn-group">
-      <button class="confirm-btn" onclick="addCard()">確定</button>
-      <button class="cancel-btn" onclick="closePopup()">取消</button>
-    </div>
-  </div>
-</div>
-
-<script>
-const STORAGE_KEY = 'macau_coupons';
-
-function openPopup(){
-  document.getElementById('mask').style.display = 'flex';
+<html lang="en" translate="no">
+  <head>
+    
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="referrer" content="same-origin" >
+    <meta name="generator" content="AList V3" >
+    <meta name="theme-color" content="#000000" >
+    <meta name="google" content="notranslate" >
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+    <meta name="apple-mobile-web-app-title" content="AList" >
+    <link       rel="apple-touch-icon"
+      href="https://jsd.nn.ci/gh/alist-org/logo@main/logo.png"
+    >
+    <script       src="https://g.alicdn.com/IMM/office-js/1.1.5/aliyun-web-office-sdk.min.js"
+      async
+    ></script>
+    <link       rel="shortcut icon"
+      type="image/ico"
+      href="https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg"
+    >
+    <title>AList</title>
+    <script>
+      window.ALIST = {
+        cdn: '',
+        monaco_cdn: undefined,
+        base_path: '/',
+        api: undefined,
+        main_color: '#1890ff',
+      }
+      window.__dynamic_base__ = window.ALIST.cdn || ""
+    </script>
+    
+    
+    <script type="module">try{import.meta.url;import("_").catch(()=>1);}catch(e){}window.__vite_is_modern_browser=true;</script>
+    <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy build because dynamic import or import.meta.url is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src= window.__dynamic_base__+e.getAttribute('data-src'),n.onload=function(){System.import( window.__dynamic_base__+document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+    <script>
+(function(){
+var preloads = [{"parentTagName":"head","tagName":"link","attrs":{"href":"/static/manifest.json","rel":"manifest"}},{"parentTagName":"head","tagName":"script","attrs":{"type":"module","crossorigin":"","src":"/assets/index-bda5f188.js"}},{"parentTagName":"head","tagName":"link","attrs":{"rel":"stylesheet","href":"/assets/index-c0564af7.css"}}];
+function setAttribute(target, attrs) {
+for (var key in attrs) {
+  target.setAttribute(key, attrs[key]);
 }
-
-function closePopup(){
-  document.getElementById('mask').style.display = 'none';
-  document.getElementById('m1').value = '';
-  document.getElementById('m2').value = '';
-  document.getElementById('m3').value = '';
+return target;
+};
+for(var i = 0; i < preloads.length; i++){
+var item = preloads[i]
+var childNode = document.createElement(item.tagName);
+setAttribute(childNode, item.attrs)
+if( window.__dynamic_base__) {
+  if(item.tagName == 'link') {
+    setAttribute(childNode, { href:  window.__dynamic_base__ + item.attrs.href })
+  } else if (item.tagName == 'script') {
+    setAttribute(childNode, { src:  window.__dynamic_base__ + item.attrs.src })
+  }
 }
-
-document.getElementById('mask').onclick = function(e){
-  if(e.target === this) closePopup();
+document.getElementsByTagName(item.parentTagName)[0].appendChild(childNode);
 }
-
-function getCoupons() {
-  let data = localStorage.getItem(STORAGE_KEY);
-  return data ? JSON.parse(data) : [];
-}
-
-function saveCoupons(arr) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-}
-
-function renderCards() {
-  let list = document.getElementById('cardList');
-  let arr = getCoupons();
-  list.innerHTML = '';
-  arr.forEach((item, idx)=>{
-    list.innerHTML += `
-    <div class="card">
-      <div class="card-content">
-        <p>平台：${item.platform}</p>
-        <p>金額一：${item.m1} 元</p>
-        <p>金額二：${item.m2} 元</p>
-        <p>金額三：${item.m3} 元</p>
-      </div>
-      <span class="delete-btn" onclick="del(${idx})">×</span>
-    </div>
-    `;
-  });
-}
-
-function addCard(){
-  let p = document.getElementById('platform').value;
-  let m1 = document.getElementById('m1').value;
-  let m2 = document.getElementById('m2').value;
-  let m3 = document.getElementById('m3').value;
-
-  let arr = getCoupons();
-  arr.push({platform:p,m1,m2,m3});
-  saveCoupons(arr);
-  renderCards();
-  closePopup();
-}
-
-function del(idx){
-  let arr = getCoupons();
-  arr.splice(idx,1);
-  saveCoupons(arr);
-  renderCards();
-}
-
-window.onload = function(){
-  renderCards();
-}
+})();
 </script>
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
 
-</body>
-</html>
+    
+    
+    <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+    <script nomodule crossorigin id="vite-legacy-polyfill" data-src="/assets/polyfills-legacy.c43c1c6a.js">!(function() {
+      var e = document.createElement('script')
+      e.src =  window.__dynamic_base__ + document.getElementById('vite-legacy-polyfill').getAttribute('data-src');
+      e.onload = function() {
+        System.import( window.__dynamic_base__+document.getElementById('vite-legacy-entry').getAttribute('data-src'))
+      };
+      document.body.appendChild(e)
+    })();</script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy.dadc7ec5.js">
+    </script>
+      </body>
+    </html>
