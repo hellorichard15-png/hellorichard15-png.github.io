@@ -1,82 +1,157 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
-  <head>
-    
-    <meta charset="utf-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1" >
-    <meta name="referrer" content="same-origin" >
-    <meta name="generator" content="AList V3" >
-    <meta name="theme-color" content="#000000" >
-    <meta name="google" content="notranslate" >
-    
-    <meta name="apple-mobile-web-app-capable" content="yes" >
-    <meta name="apple-mobile-web-app-title" content="AList" >
-    <link       rel="apple-touch-icon"
-      href="https://jsd.nn.ci/gh/alist-org/logo@main/logo.png"
-    >
-    <script       src="https://g.alicdn.com/IMM/office-js/1.1.5/aliyun-web-office-sdk.min.js"
-      async
-    ></script>
-    <link       rel="shortcut icon"
-      type="image/ico"
-      href="https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg"
-    >
-    <title>AList</title>
-    <script>
-      window.ALIST = {
-        cdn: '',
-        monaco_cdn: undefined,
-        base_path: '/',
-        api: undefined,
-        main_color: '#1890ff',
-      }
-      window.__dynamic_base__ = window.ALIST.cdn || ""
-    </script>
-    
-    
-    <script type="module">try{import.meta.url;import("_").catch(()=>1);}catch(e){}window.__vite_is_modern_browser=true;</script>
-    <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy build because dynamic import or import.meta.url is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src= window.__dynamic_base__+e.getAttribute('data-src'),n.onload=function(){System.import( window.__dynamic_base__+document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
-    <script>
-(function(){
-var preloads = [{"parentTagName":"head","tagName":"link","attrs":{"href":"/static/manifest.json","rel":"manifest"}},{"parentTagName":"head","tagName":"script","attrs":{"type":"module","crossorigin":"","src":"/assets/index-bda5f188.js"}},{"parentTagName":"head","tagName":"link","attrs":{"rel":"stylesheet","href":"/assets/index-c0564af7.css"}}];
-function setAttribute(target, attrs) {
-for (var key in attrs) {
-  target.setAttribute(key, attrs[key]);
-}
-return target;
-};
-for(var i = 0; i < preloads.length; i++){
-var item = preloads[i]
-var childNode = document.createElement(item.tagName);
-setAttribute(childNode, item.attrs)
-if( window.__dynamic_base__) {
-  if(item.tagName == 'link') {
-    setAttribute(childNode, { href:  window.__dynamic_base__ + item.attrs.href })
-  } else if (item.tagName == 'script') {
-    setAttribute(childNode, { src:  window.__dynamic_base__ + item.attrs.src })
-  }
-}
-document.getElementsByTagName(item.parentTagName)[0].appendChild(childNode);
-}
-})();
-</script>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父亲节幸运抽红包</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            /* 更换沉稳蓝灰色渐变，适配父亲节男性主题 */
+            background: linear-gradient(135deg, #c6e0ff, #8cb8e8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .box {
+            background: #fff;
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(30, 90, 180, 0.25);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #285cad;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .flower {
+            font-size: 50px;
+            margin: 20px 0;
+        }
+        #result {
+            font-size: 20px;
+            color: #194b96;
+            min-height: 60px;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 15px;
+            background: #e6f1ff;
+            line-height: 1.6;
+        }
+        .count-tip {
+            color: #285cad;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            /* 按钮改为蓝色渐变 */
+            background: linear-gradient(90deg, #4086e8, #62a2f0);
+            color: #fff;
+            border: none;
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(40, 92, 173, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(40, 92, 173, 0.5);
+        }
+    </style>
 </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-
-    
-    
-    <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-    <script nomodule crossorigin id="vite-legacy-polyfill" data-src="/assets/polyfills-legacy.c43c1c6a.js">!(function() {
-      var e = document.createElement('script')
-      e.src =  window.__dynamic_base__ + document.getElementById('vite-legacy-polyfill').getAttribute('data-src');
-      e.onload = function() {
-        System.import( window.__dynamic_base__+document.getElementById('vite-legacy-entry').getAttribute('data-src'))
-      };
-      document.body.appendChild(e)
-    })();</script>
-    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy.dadc7ec5.js">
+<body>
+    <div class="box">
+        <h1>💙 父亲节幸运抽奖</h1>
+        <!-- 替换为向日葵（父亲节代表花） -->
+        <div class="flower">🌻🤍🌻</div>
+        <div class="count-tip" id="countTip">今日剩余次数：15 次</div>
+        <div id="result">点击下方按钮开启好运～</div>
+        <button class="btn" id="drawBtn" onclick="drawLottery()">立即抽好运</button>
+    </div>
+    <script>
+        // 配置
+        const MAX_TIMES = 15; // 每天最多15次
+        const moneyList = [5.20, 6.66, 8.88, 9.99, 13.14, 20.00];
+        // 全部替换为父亲节专属祝福文案
+        const blessList = [
+            "父亲节快乐，愿老爸平安顺遂，身体健康～",
+            "如山父爱，岁岁安康，万事无忧🤍",
+            "感恩无言父爱，一生为我遮风挡雨🌻",
+            "愿岁月善待我的超人爸爸，少点操劳多点欢喜",
+            "致敬最伟大的父亲，往后轻松自在"
+        ];
+        // 获取今天日期字符串 YYYY-MM-DD
+        function getTodayStr() {
+            const d = new Date();
+            return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+        }
+        // 初始化次数
+        function initCount() {
+            let today = getTodayStr();
+            let store = JSON.parse(localStorage.getItem('dadDraw')) || {};
+            // 不是同一天，重置次数
+            if (store.date !== today) {
+                store = { date: today, times: 0 };
+                localStorage.setItem('dadDraw', JSON.stringify(store));
+            }
+            return store.times;
+        }
+        // 更新剩余次数显示
+        function updateTip() {
+            let times = initCount();
+            let left = MAX_TIMES - times;
+            document.getElementById('countTip').innerText = `今日剩余次数：${left} 次`;
+            // 次数用完禁用按钮
+            if (left <= 0) {
+                document.getElementById('drawBtn').disabled = true;
+                document.getElementById('result').innerText = "今日抽奖次数已用完，明天再来哦～";
+            }
+        }
+        // 抽奖逻辑
+        function drawLottery() {
+            let times = initCount();
+            if (times >= MAX_TIMES) {
+                document.getElementById('result').innerText = "今日抽奖次数已用完，明天再来哦～";
+                return;
+            }
+            // 次数+1 保存缓存（存储key改为dadDraw区分母亲节）
+            times++;
+            let store = { date: getTodayStr(), times: times };
+            localStorage.setItem('dadDraw', JSON.stringify(store));
+            updateTip();
+            // 50%概率抽钱/祝福语
+            let isGetMoney = Math.random() < 0.5;
+            let resDom = document.getElementById("result");
+            if (isGetMoney) {
+                let randomMoney = moneyList[Math.floor(Math.random() * moneyList.length)];
+                resDom.innerHTML = `🎉 恭喜抽中红包<br>💰 ${randomMoney.toFixed(2)} 元`;
+            } else {
+                let randomBless = blessList[Math.floor(Math.random() * blessList.length)];
+                resDom.innerText = randomBless;
+            }
+        }
+        // 页面加载初始化
+        window.onload = function() {
+            updateTip();
+        };
     </script>
-      </body>
-    </html>
+</body>
+</html>
