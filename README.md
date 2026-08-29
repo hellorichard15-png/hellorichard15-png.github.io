@@ -1,6 +1,1 @@
-cat > /etc/apt/sources.list <<'EOF'
-deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware
-deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware
-deb http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
-EOF
-
+apt install -y gtk-4-libgtk-4-0 libadwaita-1-0-dev git meson g++ cargo timeshift gnome-disk-utility wget curl gimp krita firefox
