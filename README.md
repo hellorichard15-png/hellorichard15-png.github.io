@@ -1,1 +1,6 @@
-nano /etc/apt/sources.list
+cat > /etc/apt/sources.list <<'EOF'
+deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
+EOF
+
