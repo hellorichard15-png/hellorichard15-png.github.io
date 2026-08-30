@@ -1,1 +1,5 @@
-apt install -y virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+apt update
+apt install -y openssh-server
+systemctl enable --now ssh
+ip a
+
