@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于我</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  body { background: #fafafa; color: #222831; }
+  nav { background: #222831; position: sticky; top: 0; z-index: 99; }
+  .nav-wrap { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 60px; }
+  .logo { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+  .nav-links { display: flex; flex-wrap: wrap; }
+  .nav-links a { color: #cfd3d8; text-decoration: none; margin-left: 22px; font-size: 15px; padding: 4px 2px; transition: color .2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.active { color: #00adb5; border-bottom: 2px solid #00adb5; }
+  main { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+  h1.page-title { font-size: 30px; margin-bottom: 24px; border-left: 5px solid #00adb5; padding-left: 12px; }
+  .card { background: #fff; border: 1px solid #ececec; border-radius: 12px; padding: 26px; line-height: 1.9; color: #444; font-size: 16px; }
+  .tags { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag { background: #e6f7f8; color: #008a92; padding: 6px 14px; border-radius: 20px; font-size: 14px; }
+  footer { text-align: center; color: #999; font-size: 13px; padding: 30px 0; margin-top: 40px; }
+  @media (max-width: 640px) { .nav-links a { margin-left: 14px; font-size: 14px; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-wrap">
+    <div class="logo">我的主页</div>
+    <div class="nav-links">
+      <a href="index.html">主页</a>
+      <a href="about.html" class="active">关于我</a>
+      <a href="projects.html">项目</a>
+      <a href="hobbies.html">爱好</a>
+      <a href="videos.html">视频平台</a>
+      <a href="contact.html">联系我</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <h1 class="page-title">关于我</h1>
+  <div class="card">
+    <p>这里介绍你自己：你是谁、在做什么、对啥感兴趣、擅长啥。先随便写两句占位，回头替换成你自己的话就行。</p>
+    <p>比如：平时喜欢捣鼓点小玩意儿，也爱把过程拍成视频分享出来。性格嘛，就是闲不住，总想多学两手新东西。</p>
+    <div class="tags">
+      <span class="tag">写代码</span>
+      <span class="tag">做视频</span>
+      <span class="tag">爱折腾</span>
+    </div>
+  </div>
+</main>
+<footer>© 2026 我的主页 · 由 GitHub Pages 托管</footer>
+</body>
+</html>

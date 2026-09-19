@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的视频平台</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  body { background: #fafafa; color: #222831; }
+  nav { background: #222831; position: sticky; top: 0; z-index: 99; }
+  .nav-wrap { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 60px; }
+  .logo { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+  .nav-links { display: flex; flex-wrap: wrap; }
+  .nav-links a { color: #cfd3d8; text-decoration: none; margin-left: 22px; font-size: 15px; padding: 4px 2px; transition: color .2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.active { color: #00adb5; border-bottom: 2px solid #00adb5; }
+  main { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+  h1.page-title { font-size: 30px; margin-bottom: 8px; border-left: 5px solid #00adb5; padding-left: 12px; }
+  .sub { color: #777; margin-bottom: 28px; padding-left: 17px; }
+  .platform { background: #fff; border: 1px solid #ececec; border-radius: 12px; padding: 24px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .platform .info h3 { font-size: 18px; margin-bottom: 6px; }
+  .platform .info p { color: #666; font-size: 14px; }
+  .platform a.btn { background: #00adb5; color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 8px; font-size: 15px; white-space: nowrap; transition: background .2s; }
+  .platform a.btn:hover { background: #00909a; }
+  footer { text-align: center; color: #999; font-size: 13px; padding: 30px 0; margin-top: 40px; }
+  @media (max-width: 640px) { .nav-links a { margin-left: 14px; font-size: 14px; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-wrap">
+    <div class="logo">我的主页</div>
+    <div class="nav-links">
+      <a href="index.html">主页</a>
+      <a href="about.html">关于我</a>
+      <a href="projects.html">项目</a>
+      <a href="hobbies.html">爱好</a>
+      <a href="videos.html" class="active">视频平台</a>
+      <a href="contact.html">联系我</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <h1 class="page-title">我的视频平台</h1>
+  <p class="sub">想蹲我更新的话，去下面任一个平台找我就行。</p>
+  <div class="platform">
+    <div class="info">
+      <h3>B站</h3>
+      <p>我的主阵地，更新最勤，欢迎来串门。</p>
+    </div>
+    <a class="btn" href="https://space.bilibili.com/你的UID" target="_blank" rel="noopener">去看看</a>
+  </div>
+  <div class="platform">
+    <div class="info">
+      <h3>YouTube</h3>
+      <p>海外平台同步更新。</p>
+    </div>
+    <a class="btn" href="https://www.youtube.com/@你的频道名" target="_blank" rel="noopener">去看看</a>
+  </div>
+  <div class="platform">
+    <div class="info">
+      <h3>抖音 / 其他</h3>
+      <p>短内容随手发，地址回头补。</p>
+    </div>
+    <a class="btn" href="#" onclick="alert('链接待填');return false;">去看看</a>
+  </div>
+</main>
+<footer>© 2026 我的主页 · 由 GitHub Pages 托管</footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的项目</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  body { background: #fafafa; color: #222831; }
+  nav { background: #222831; position: sticky; top: 0; z-index: 99; }
+  .nav-wrap { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 60px; }
+  .logo { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+  .nav-links { display: flex; flex-wrap: wrap; }
+  .nav-links a { color: #cfd3d8; text-decoration: none; margin-left: 22px; font-size: 15px; padding: 4px 2px; transition: color .2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.active { color: #00adb5; border-bottom: 2px solid #00adb5; }
+  main { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+  h1.page-title { font-size: 30px; margin-bottom: 24px; border-left: 5px solid #00adb5; padding-left: 12px; }
+  .project { background: #fff; border: 1px solid #ececec; border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .project h3 { font-size: 19px; margin-bottom: 8px; color: #222831; }
+  .project h3 a { color: #00adb5; text-decoration: none; }
+  .project p { color: #555; line-height: 1.7; font-size: 15px; }
+  footer { text-align: center; color: #999; font-size: 13px; padding: 30px 0; margin-top: 40px; }
+  @media (max-width: 640px) { .nav-links a { margin-left: 14px; font-size: 14px; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-wrap">
+    <div class="logo">我的主页</div>
+    <div class="nav-links">
+      <a href="index.html">主页</a>
+      <a href="about.html">关于我</a>
+      <a href="projects.html" class="active">项目</a>
+      <a href="hobbies.html">爱好</a>
+      <a href="videos.html">视频平台</a>
+      <a href="contact.html">联系我</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <h1 class="page-title">我的项目</h1>
+  <div class="project">
+    <h3><a href="#" onclick="return toast('项目链接待填')">项目一：XXX</a></h3>
+    <p>项目是干啥的、用了啥技术、解决了啥问题，简单两三句说清楚。想放链接就把 # 换成项目地址。</p>
+  </div>
+  <div class="project">
+    <h3><a href="#" onclick="return toast('项目链接待填')">项目二：XXX</a></h3>
+    <p>同上，往下复制这个 div 就能加新项目。</p>
+  </div>
+</main>
+<footer>© 2026 我的主页 · 由 GitHub Pages 托管</footer>
+<script>
+function toast(m){ alert(m); return false; }
+</script>
+</body>
+</html>
